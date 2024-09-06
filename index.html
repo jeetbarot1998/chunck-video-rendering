@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Video Streaming</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #videoPlayer {
+            max-width: 100%;
+        }
+
+        #status {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="videoPlayer" controls></video>
+    <div id="status">Loading video...</div>
+
+    <script>
+        const videoPlayer = document.getElementById('videoPlayer');
+        const statusElement = document.getElementById('status');
+        const videoUrl = 'http://localhost:3000/video/5th.mp4'; // Adjust this URL as needed
+
+        function updateStatus(message) {
+            statusElement.textContent = message;
+            console.log(message);
+        }
+
+        function initializeVideo() {
+            updateStatus('Initializing video...');
+
+            videoPlayer.src = videoUrl;
+            videoPlayer.preload = 'auto';
+
+        }
+
+        initializeVideo();
+    </script>
+</body>
+
+</html>
